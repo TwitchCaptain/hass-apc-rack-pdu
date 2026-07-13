@@ -1,0 +1,63 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "APC Metered Rack PDU",
+        "description": "Connect over SNMP (PowerNet-MIB / rPDU2). Write community is used for energy and peak resets. Optional SSH credentials enable LCD identify.",
+        "data": {
+          "host": "Host",
+          "name": "Name",
+          "community": "SNMP read community",
+          "write_community": "SNMP write community",
+          "port": "SNMP port",
+          "scan_interval": "Poll interval (seconds)",
+          "username": "SSH username (optional)",
+          "password": "SSH password (optional)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach the PDU over SNMP. Check host and community."
+    },
+    "abort": {
+      "already_configured": "This PDU is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "APC Rack PDU options",
+        "data": {
+          "scan_interval": "Poll interval (seconds)",
+          "has_env_probe": "Temperature / humidity probe attached",
+          "write_community": "SNMP write community"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "power": { "name": "Power" },
+      "peak_power": { "name": "Peak power" },
+      "energy": { "name": "Energy" },
+      "current": { "name": "Current" },
+      "voltage": { "name": "Voltage" },
+      "apparent_power": { "name": "Apparent power" },
+      "power_factor": { "name": "Power factor" },
+      "load_percent": { "name": "Load" },
+      "load_state": { "name": "Load state" },
+      "peak_current": { "name": "Peak current" },
+      "temperature": { "name": "Temperature" },
+      "humidity": { "name": "Humidity" }
+    },
+    "binary_sensor": {
+      "overload": { "name": "Overload" },
+      "near_overload": { "name": "Near overload" }
+    },
+    "button": {
+      "reset_energy": { "name": "Reset energy" },
+      "reset_peak_power": { "name": "Reset peak power" },
+      "identify": { "name": "Identify (blink LCD)" }
+    }
+  }
+}

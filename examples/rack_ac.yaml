@@ -1,0 +1,33 @@
+# Rack closet cooling — mirrors Indigo "Cool Rack" / "Cool Rack (Off)"
+# Temperature: Rack PDU custom integration env probe (AP8858).
+
+automation:
+  - id: cool_rack_on
+    alias: Cool Rack
+    description: >-
+      Turn on Rack AC when rack closet temperature rises above 86°F
+      (same trip point as Indigo Cool Rack; sensor is APC PDU env probe).
+    mode: single
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.rack_pdu_temperature
+        above: 86
+    actions:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.rack_ac
+
+  - id: cool_rack_off
+    alias: Cool Rack Off
+    description: >-
+      Turn off Rack AC when rack closet temperature falls below 73°F
+      (Indigo used 75°F; lowered per preference).
+    mode: single
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.rack_pdu_temperature
+        below: 73
+    actions:
+      - action: switch.turn_off
+        target:
+          entity_id: switch.rack_ac

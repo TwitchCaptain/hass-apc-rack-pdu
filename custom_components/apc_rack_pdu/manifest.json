@@ -1,12 +1,12 @@
 {
   "domain": "apc_rack_pdu",
   "name": "APC Metered Rack PDU",
+  "after_dependencies": ["snmp"],
   "codeowners": [
     "@davidnewhall",
     "@TwitchCaptain"
   ],
   "config_flow": true,
-  "after_dependencies": ["snmp"],
   "documentation": "https://github.com/TwitchCaptain/hass-apc-rack-pdu",
   "integration_type": "device",
   "iot_class": "local_polling",

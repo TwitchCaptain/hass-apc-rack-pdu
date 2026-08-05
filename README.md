@@ -7,7 +7,7 @@ Custom Home Assistant integration for **APC metered rack PDUs** (AP88xx / PowerN
 
 This is a proper **device** integration (UI config flow), not a pile of YAML SNMP sensors. It is the Home Assistant successor to the Indigo plugin [indigoplugins-apc-metered-rack-pdu](https://github.com/davidnewhall/indigoplugins-apc-metered-rack-pdu).
 
-> **Note:** Metered PDUs (AP8858 and friends) report aggregate power only. They do **not** switch individual outlets. For switched PDUs, use a switched-outlet integration instead.
+> **Note:** Metered PDUs (AP8858 and friends) report aggregate power only. They do **not** switch individual outlets. For switched PDUs, use a switched-outlet integration instead. Or open a pull request.
 
 ## Features
 

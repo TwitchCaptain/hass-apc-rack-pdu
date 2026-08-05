@@ -36,7 +36,7 @@ def _patch_identity(result=None, side_effect=None):
 def _patch_setup():
     return patch(
         "custom_components.apc_rack_pdu.async_setup_entry",
-        return_value=True,
+        new=AsyncMock(return_value=True),
     )
 
 

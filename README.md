@@ -123,6 +123,18 @@ Uses PowerNet-MIB under `1.3.6.1.4.1.318.1.1.26` (`rPDU2`):
 - Indigo plugin (SSH-based): https://github.com/davidnewhall/indigoplugins-apc-metered-rack-pdu
 - APC PowerNet MIB / rPDU2 documentation from Schneider Electric
 
+## Development
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt -r requirements_test.txt
+pytest -q tests
+ruff check custom_components/apc_rack_pdu tests
+```
+
+CI runs pytest, ruff, [hassfest](https://github.com/home-assistant/actions), and HACS validation on every push/PR.
+
 ## License
 
 [MIT](LICENSE) © 2026 [Go Lift Technologies LLC](https://golift.io)

@@ -1,0 +1,2 @@
+# Mirrors custom_components/apc_rack_pdu/manifest.json — used by CI and Dependabot.
+# pysnmp comes via Home Assistant's snmp component (no extra pip pin).

@@ -1,6 +1,12 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
-.DS_Store
+.eggs/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
 .venv/
+venv/
+.DS_Store
 *.log

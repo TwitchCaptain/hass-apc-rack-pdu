@@ -2,11 +2,17 @@
 
 from __future__ import annotations
 
+import logging
 from dataclasses import dataclass
 from datetime import timedelta
-import logging
 from typing import Any
 
+from homeassistant.components.snmp import async_get_snmp_engine
+from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import CONF_HOST, CONF_SCAN_INTERVAL
+from homeassistant.core import HomeAssistant
+from homeassistant.exceptions import HomeAssistantError
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from pysnmp.hlapi.v3arch.asyncio import (
     CommunityData,
     ContextData,
@@ -18,13 +24,6 @@ from pysnmp.hlapi.v3arch.asyncio import (
     set_cmd,
 )
 
-from homeassistant.components.snmp import async_get_snmp_engine
-from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_HOST, CONF_PORT, CONF_SCAN_INTERVAL
-from homeassistant.core import HomeAssistant
-from homeassistant.exceptions import HomeAssistantError
-from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
-
 from .const import (
     ATTR_FIRMWARE,
     ATTR_LOCATION,
@@ -32,9 +31,7 @@ from .const import (
     ATTR_MODEL,
     ATTR_NUM_OUTLETS,
     ATTR_SERIAL,
-    CONF_COMMUNITY,
     CONF_HAS_ENV_PROBE,
-    CONF_WRITE_COMMUNITY,
     DEFAULT_PORT,
     DEFAULT_SCAN_INTERVAL,
     DOMAIN,

@@ -7,7 +7,7 @@ Custom Home Assistant integration for **APC metered rack PDUs** (AP88xx / PowerN
 
 This is a proper **device** integration (UI config flow), not a pile of YAML SNMP sensors. It is the Home Assistant successor to the Indigo plugin [indigoplugins-apc-metered-rack-pdu](https://github.com/davidnewhall/indigoplugins-apc-metered-rack-pdu).
 
-> **Note:** Metered PDUs (AP8858 and friends) report aggregate power only. They do **not** switch individual outlets. For switched PDUs, use a switched-outlet integration instead.
+> **Note:** Metered PDUs (AP8858 and friends) report aggregate power only. They do **not** switch individual outlets. For switched PDUs, use a switched-outlet integration instead. Or open a pull request.
 
 ## Features
 
@@ -123,6 +123,18 @@ Uses PowerNet-MIB under `1.3.6.1.4.1.318.1.1.26` (`rPDU2`):
 - Indigo plugin (SSH-based): https://github.com/davidnewhall/indigoplugins-apc-metered-rack-pdu
 - APC PowerNet MIB / rPDU2 documentation from Schneider Electric
 
+## Development
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt -r requirements_test.txt
+pytest -q tests
+ruff check custom_components/apc_rack_pdu tests
+```
+
+CI runs pytest, ruff, [hassfest](https://github.com/home-assistant/actions), and HACS validation on every push/PR.
+
 ## License
 
-[MIT](LICENSE) © 2026 [Go Lift Technologies LLC](https://golift.io)
+[MIT](LICENSE) © 2026 [David Newhall II](https://twitchcaptain.com)

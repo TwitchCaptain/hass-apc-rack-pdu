@@ -1,6 +1,7 @@
 {
   "domain": "apc_rack_pdu",
   "name": "APC Metered Rack PDU",
+  "after_dependencies": ["snmp"],
   "codeowners": [
     "@davidnewhall",
     "@TwitchCaptain"

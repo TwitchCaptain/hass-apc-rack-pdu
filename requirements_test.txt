@@ -1,5 +1,5 @@
 # Dev/test-only dependencies for the custom component.
 pytest-homeassistant-custom-component==0.13.351
-ruff==0.16.1
+ruff==0.16.4
 # Imported by coordinator.py; provided at runtime by HA's snmp component.
 pysnmp==7.1.28

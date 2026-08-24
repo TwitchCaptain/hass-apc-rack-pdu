@@ -2,4 +2,4 @@
 pytest-homeassistant-custom-component==0.13.351
 ruff==0.16.1
 # Imported by coordinator.py; provided at runtime by HA's snmp component.
-pysnmp==7.1.28
+pysnmp==7.1.29
